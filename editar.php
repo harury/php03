@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Escola Santa Paciência</title>
+    <title>Escola Hognácios</title>
 </head>
 <body>
     <div class="container">
        <?php
-            $mat = $_GET["mat"];
+            $mat = $_GET["id"];
         
             include_once 'conexao.php';
         
-            $sql = "SELECT * FROM aluno WHERE mat=".$mat;
+            $sql = "SELECT * FROM aluno WHERE id=".$mat;
         
             $result = mysqli_query($con,$sql);
         
@@ -20,7 +20,7 @@
         ?>
         <h3>Editar Aluno</h3>
         <form action="atualizar.php" method="post" style="width:300px">
-           <input type="hidden" name="mat" class="form-control" value="<?php echo $linha["mat"];?>">
+           <input type="number" name="mat" class="form-control" value="<?php echo $linha["id"];?>" style = "display:none;">
            
             Nome: <input type="text" name="nome" class="form-control" value="<?php echo $linha["nome"];?>">
             

@@ -7,15 +7,14 @@
     <body class="container">
 
         <?php
-        
-        $mat        = $_POST["mat"];
-        $nome       = $_POST["nome"];
-        $email      = $_POST["email"];
-        $telefone   = $_POST["telefone"];
+        $mat = $_POST["mat"];
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $telefone = $_POST["telefone"];
         
         include_once 'conexao.php';
         $sql = "UPDATE aluno SET nome='{$nome}', 
-        email='{$email}', telefone='{$telefone}' WHERE mat=".$mat;
+        email='{$email}', telefone='{$telefone}' WHERE id=".$mat;
         
         if(mysqli_query($con, $sql)){
             echo "<p class='alert alert-success'>Atualizado com sucesso!</p>";

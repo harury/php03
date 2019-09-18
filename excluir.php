@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Escola Santa Paciência</title>
+    <title>Escola Hognácios</title>
 </head>
 <body>
     <div class="container">
     <?php
-        $mat = $_GET["mat"];
+        $mat = $_GET["id"];
 
         include_once 'conexao.php';
 
-        $sql = "DELETE FROM aluno WHERE mat=".$mat;
+        $sql = "DELETE FROM aluno WHERE id=".$mat;
 
         if(mysqli_query($con, $sql)){
             echo "<p class='alert alert-success'>Aluno deletado com sucesso!</p>";

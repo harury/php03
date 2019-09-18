@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Escola Santa Paciência</title>
+    <title>Escola Hognácios</title>
     <script>
-        function excluir(mat){
+        function excluir(id){
             if(confirm('Deseja realmente excluir este aluno?')){
-                location.href = 'excluir.php?mat=' + mat;   
+                location.href = 'excluir.php?id=' + id;   
             }
         }
     </script>
@@ -26,10 +26,10 @@
             if(isset($_GET["nome"])){
                 $nome = $_GET["nome"];
                 include_once 'conexao.php';
-                $sql = "select * from aluno where nome like '$nome%'";
+                $sql = "SELECT * FROM aluno WHERE nome like '$nome%'";
                 $result = mysqli_query($con,$sql);
                 if(mysqli_num_rows($result) > 0){ ?>
-                    <table class="table table-striped">
+                    <table class="table table-responsive">
                         <tr>
                             <th>Nome</th>
                             <th>E-mail</th>
@@ -43,12 +43,12 @@
                                   <td><?php echo $row["nome"]?></td>
                                   <td><?php echo $row["email"]?></td>
                                   <td><?php echo $row["telefone"]?></td>
-                                  <td><a href="editar.php?mat=<?php echo $row['mat']?>"><i class="fas fa-user-edit"></i></a></td>
-  <td>
-      <a href="#" onclick="excluir( <?php echo $row['mat']; ?> )">
-          <i class="fas fa-trash-alt"></i>
-      </a>
-  </td>
+                                  <td><a href="editar.php?id=<?php echo $row['id']?>"><i class="fas fa-user-edit"></i></a></td>
+                                  <td>
+                                      <a href="#" onclick="excluir( <?php echo $row['id']; ?> )">
+                                          <i class="fas fa-trash-alt"></i>
+                                      </a>
+                                  </td>
                               </tr>
                         <?php } ?>
                     </table>
